@@ -1,10 +1,10 @@
 # TechEdu
 An online Institution Directory.
 
-Description
+## Description
 An online school directory where prospective students seeking admission into all school in all educational level can have access to all schools first hand and can weigh the options of whichever they decide to attend
 
-Problem Statement
+## Problem Statement 
 The hassle to get a suitable school for the suitable person has been a daunting task, ranging from knowing the right school to select for a specific course to accessing their courses structure first hand. A typical scenario is someone who needs to study computer science and is in need of professional service he could easily search for top schools in that field within his locality and get immediate response without having to go through the long boring Jamb Brochure.
 
 
@@ -12,7 +12,7 @@ The hassle to get a suitable school for the suitable person has been a daunting 
 
 https://hack.saucecode.xyz/teams/dragonbeast
 
-Platform User
+## Platform User
 *   Prospective Student
 *   Existing student
 
@@ -28,8 +28,9 @@ Platform User
 *   A prospective student should be able to see the profile for a single existing student.
 *   A prospective student should be able to communicate with other student directly.
 *   A prospective student should be able to communicate with other student in a group.
-*   A prospective student should be able to create a group and join existing ones*  
-### Existing student
+*   A prospective student should be able to create a group and join existing ones
+
+**Existing student**
 
 *   An existing student should be able to sign up.
 *   An existing student should be able to login.
@@ -45,7 +46,7 @@ Platform User
 *    An existing student should be able to create a group and join existing ones
 
 
-### ALL STUDENTS SHALL HAVE BASIC DETAILS SUCH AS
+ **ALL STUDENTS SHALL HAVE BASIC DETAILS SUCH AS**
 
 *   Name
 *   Date of Birth
@@ -56,7 +57,7 @@ Platform User
 *   Level
 
 
-ALL SCHOOLS SHALL HAVE BASIC DETAILS SUCH AS
+**ALL SCHOOLS SHALL HAVE BASIC DETAILS SUCH AS**
 
 *   Name
 *   Date of Creation
