@@ -23,7 +23,7 @@ function Welcome() {
   ];
   return (
     <section id="welcome" className="flex-column main-center cross-center">
-      <div>
+      <div className='welcome-heading'>
         <h1>Welcome To TechEdu</h1>
         <p className='welcome-text'>
           An Inexahustible E-Guide system built to tailor the needs of
