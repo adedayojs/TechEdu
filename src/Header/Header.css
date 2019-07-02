@@ -14,6 +14,8 @@
 }
 .second-header {
   background: #fff;
+  position: sticky;
+  top: 0px;
 }
 .second-header > div {
   padding: 1em 5%;

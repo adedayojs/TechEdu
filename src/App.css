@@ -1,24 +1,23 @@
 @import url('https://fonts.googleapis.com/css?family=Kurale&display=swap');
 
-
-body{
-    font-family: kurale, menlo;
-    font-size: 14px;
-    background: #f1eded
+body {
+  font-family: kurale, menlo;
+  font-size: 14px;
+  background: rgb(212, 228, 238) ;
 }
-.flex{
-    display:flex
+.flex {
+  display: flex;
 }
-.flex-column{
-    display:flex;
-    flex-direction: column
+.flex-column {
+  display: flex;
+  flex-direction: column;
 }
 .main-center {
-    justify-content: center
+  justify-content: center;
 }
-.cross-center{
-    align-items: center
+.cross-center {
+  align-items: center;
 }
-.space-between{
-    justify-content: space-between
+.space-between {
+  justify-content: space-between;
 }

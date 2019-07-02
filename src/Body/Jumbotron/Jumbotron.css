@@ -1,8 +1,8 @@
-section {
+#jumbotron {
   height: 60vh;
   background: rgb(212, 228, 238) url(../../images/book-lover.svg);
 }
-section h1 {
+#jumbotron h1 {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 3em;
 }

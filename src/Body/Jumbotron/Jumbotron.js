@@ -3,7 +3,7 @@ import './Jumbotron.css';
 
 function Jumbotron() {
   return (
-    <section className="flex-column main-center cross-center">
+    <section id='jumbotron' className="flex-column main-center cross-center">
       <h1>The Ultimate Education Guide</h1>
 
       <form className='jumbotron-form flex'>
