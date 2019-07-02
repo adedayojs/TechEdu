@@ -1,0 +1,51 @@
+.first-header {
+  background: #34c4b4;
+}
+.first-header > div {
+  padding: 1em 5%;
+}
+.first-header span {
+  padding: 0em 1em;
+  color: #fff;
+}
+.first-header .register {
+  margin-right: 20%;
+  background: #fff;
+}
+.second-header {
+  background: #fff;
+}
+.second-header > div {
+  padding: 1em 5%;
+}
+.tech {
+  font-family: impact;
+  font-size: 2.5em;
+  color: #34c4b4;
+}
+.edu {
+  font-family: impact;
+  font-size: 1.5em;
+  color: #9c9494;
+}
+.menu span {
+  padding: 0em 1em;
+}
+.menu form {
+  display: inline-block;
+}
+.menu input{
+    border:none
+}
+.menu button{
+    background: none;
+    border:none;
+}
+.menu form span{
+    border: solid 1px #34c4b4;
+    padding:0.39em;
+    border-radius: 2em;
+}
+.menu input:focus{
+    outline: none
+}
