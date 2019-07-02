@@ -6,7 +6,7 @@ function Header() {
   const menu = ['Home', 'About', 'School', 'Courses', 'Blog', 'Contact'];
   return (
     <>
-      <header className="flex space-between className first-header">
+      <header className="flex space-between first-header">
         <div>
           <span> Have any questions ?</span>
           <span>

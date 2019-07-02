@@ -1,0 +1,33 @@
+section {
+  height: 60vh;
+  background: rgb(212, 228, 238) url(../../images/book-lover.svg);
+}
+section h1 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 3em;
+}
+.jumbotron-form input {
+  padding: 0.5em;
+  font-size: 16px;
+  border: none;
+}
+.jumbotron-form input:focus {
+  outline: none;
+}
+
+.jumbotron-form select {
+  padding: 1em;
+  font-size: 16px;
+  border: none;
+  outline: none;
+}
+.jumbotron-form div {
+padding:0.5em 1em;
+margin-right: 1em;
+  background: #fff;
+  border-radius: 1em;
+}
+.jumbotron-form button {
+  background: #34c4b4;
+  border-radius: 1em;
+}
