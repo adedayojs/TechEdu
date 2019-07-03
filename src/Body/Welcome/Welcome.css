@@ -28,4 +28,5 @@
   transform: scale(1);
   transition: ease-in 0.3s;
   box-shadow: 0.5em 0.5em 2em #fff;
+  opacity: 0.5;
 }

@@ -6,10 +6,14 @@
   height:13em;
   border-radius: 1em 1em 0em 0em
 }
+.popular-div{
+    background: #fff
+}
 .popular-items div {
   padding: 0em;
   margin: 1em;
   width: 33%;
+  border-radius: 1em 1em 0em 0em;
 }
 .school{
     text-align: left;
