@@ -3,7 +3,6 @@ import React from 'react';
 import './Popular.css';
 
 function Welcome({ data, heading, text }) {
-  console.log(text, heading);
   return (
     <section id="popular" className="flex-column main-center cross-center">
       <div className="welcome-heading">

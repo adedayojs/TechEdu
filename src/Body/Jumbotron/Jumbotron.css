@@ -1,6 +1,6 @@
 #jumbotron {
   height: 60vh;
-  background: rgb(212, 228, 238) url('../../images/book-lover.svg');
+  background: #d4e4ee url('../../images/book-lover.svg');
 }
 #jumbotron h1 {
   font-family: Verdana, Geneva, Tahoma, sans-serif;

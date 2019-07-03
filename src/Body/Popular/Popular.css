@@ -1,13 +1,18 @@
 #popular {
-  background: rgba(226, 220, 220, 0.5);
+  background-image: linear-gradient(
+    180deg,
+    #fff,
+    rgb(212, 228, 238),
+    rgba(52, 196, 180, 0.3)
+  );
 }
 .popular-image {
   width: 100%;
-  height:13em;
-  border-radius: 1em 1em 0em 0em
+  height: 13em;
+  border-radius: 1em 1em 0em 0em;
 }
-.popular-div{
-    background: #fff
+.popular-div {
+  background: #fff;
 }
 .popular-items div {
   padding: 0em;
@@ -15,11 +20,11 @@
   width: 33%;
   border-radius: 1em 1em 0em 0em;
 }
-.school{
-    text-align: left;
-    padding: 0em 1em;
+.school {
+  text-align: left;
+  padding: 0em 1em;
 }
-.school-detail{
-    text-align: justify;
-    padding: 0em 1em;
+.school-detail {
+  text-align: justify;
+  padding: 0em 1em;
 }
