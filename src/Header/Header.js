@@ -2,6 +2,8 @@ import React from 'react';
 import './Header.css';
 import { FaPhone, FaEnvelope, FaSearch } from 'react-icons/fa';
 
+import { Link } from 'react-router-dom';
+
 function Header() {
   const menu = ['Home', 'About', 'School', 'Courses', 'Blog', 'Contact'];
   return (
@@ -24,9 +26,15 @@ function Header() {
           <span className="edu">Edu</span>
         </div>
         <div className="menu">
-          {menu.map(item => (
-            <span key={item}> {item}</span>
-          ))}
+          {menu.map(item => {
+            let path;
+            item === 'Home' ? (path = '/') : (path = item);
+            return (
+              <Link key={item} to={path}>
+                <span> {item}</span>
+              </Link>
+            );
+          })}
           <form>
             <span>
               <input type="text" placeholder="search" />
