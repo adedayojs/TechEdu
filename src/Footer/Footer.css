@@ -1,0 +1,29 @@
+footer {
+  padding: 2em;
+  background-image: linear-gradient(
+    rgb(212, 228, 238),
+    rgba(52, 196, 180, 0.3)
+  );
+}
+.footer {
+  width: 25%;
+  padding: 2em;
+}
+.footer.one p {
+  width: 70%;
+}
+.social a {
+  background: #34c4b4;
+  border-radius: 100%;
+  padding: 1em;
+  margin: 0.5em;
+  color: #fff !important;
+  font-size: 1em;
+  text-align: center;
+}
+.foot-title {
+  font-weight: 700;
+}
+.footer.three div {
+  margin: 1em 0em;
+}

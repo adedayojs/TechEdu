@@ -5,7 +5,6 @@ import Body from './Body/Body';
 import Footer from './Footer/Footer';
 import { UserContext } from './UserContext';
 
-import { Route } from 'react-router-dom';
 
 import './App.css';
 const home ={}
