@@ -5,9 +5,7 @@ import Body from './Body/Body';
 import Footer from './Footer/Footer';
 import { UserContext } from './UserContext';
 
-
 import './App.css';
-const home ={}
 function App() {
   const [schools, setSchools] = useState([]);
   const [about, setAbout] = useState([]);
@@ -24,7 +22,7 @@ function App() {
 
   return (
     <UserContext.Provider value={{ schools, about }}>
-    <Header />
+      <Header />
       <Body />
       <Footer />
     </UserContext.Provider>

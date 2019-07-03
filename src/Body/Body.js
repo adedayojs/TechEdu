@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import Jumbotron from './Jumbotron/Jumbotron';
 import Welcome from './Welcome/Welcome';
 import Popular from './Popular/Popular';
+import Login from './Login/Login';
 import 'react-icons/';
 
 import { UserContext } from '../UserContext';
@@ -36,6 +37,7 @@ function Body() {
           <Popular {...{ data: about, heading: ourCore, text: coreText }} />
         )}
       />
+      <Route path='/login' component={Login}/>
     </>
   );
 }

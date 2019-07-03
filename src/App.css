@@ -5,6 +5,12 @@ body {
   font-size: 14px;
   background: rgb(212, 228, 238);
 }
+input[type='submit'] {
+  cursor: pointer;
+}
+button {
+  cursor: pointer;
+}
 a {
   text-decoration-line: none;
 }
