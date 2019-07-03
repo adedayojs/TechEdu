@@ -1,33 +1,32 @@
 import React, { useState, useEffect } from 'react';
+
 import Header from './Header/Header';
 import Body from './Body/Body';
 import Footer from './Footer/Footer';
+import { UserContext } from './UserContext';
+
 import './App.css';
 
-import { BrowserRouter as Router } from 'react-router-dom';
-
-export const UserContext = React.createContext({});
-export const UserProvider = UserContext.Provider;
-export const UserConsumer = UserContext.Consumer;
-
 function App() {
-  document.title = 'TechEdu | Education Decision Platform';
-
   const [schools, setSchools] = useState([]);
+  const [about, setAbout] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3000/schools')
+    fetch('/schools')
       .then(res => res.json())
       .then(res => setSchools(res));
+
+    fetch('/about')
+      .then(res => res.json())
+      .then(res => setAbout(res));
   }, []);
+
   return (
-    <UserProvider {...{ schools }}>
-      <Router>
-        <Header />
-        <Body />
-        <Footer />
-      </Router>
-    </UserProvider>
+    <UserContext.Provider value={{ schools, about }}>
+      <Header />
+      <Body />
+      <Footer />
+    </UserContext.Provider>
   );
 }
 

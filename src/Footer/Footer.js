@@ -1,8 +1,8 @@
 import React from 'react';
 import 'react-icons/';
 
-function Footer(){
-    return null
+function Footer() {
+  return <> </>;
 }
 
-export default Footer
+export default Footer;
