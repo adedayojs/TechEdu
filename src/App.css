@@ -1,18 +1,18 @@
 @import url('https://fonts.googleapis.com/css?family=Kurale&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Russo+One&display=swap');
 
 body {
   font-family: kurale, menlo;
   font-size: 14px;
   background: rgb(212, 228, 238);
 }
-input[type='submit'] {
-  cursor: pointer;
-}
+
 button {
   cursor: pointer;
 }
 a {
   text-decoration-line: none;
+  color: initial;
 }
 a:visited {
   color: initial;

@@ -22,8 +22,8 @@ function Login() {
         <img src="./assets/img/login.png" alt="login/signup" />
       </div>
       <div className="login-signup-details">
-        <Route path="/login" component={LoginDetails} />
-        <Route path="/signup" component={SignupDetails} />
+        <Route exact path="/login" component={LoginDetails} />
+        <Route path="/login/signup" component={SignupDetails} />
       </div>
     </section>
   );

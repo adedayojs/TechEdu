@@ -27,3 +27,9 @@ footer {
 .footer.three div {
   margin: 1em 0em;
 }
+
+@media (max-width: 600px) {
+  footer {
+    flex-direction: column;
+  }
+}

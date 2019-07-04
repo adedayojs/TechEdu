@@ -3,11 +3,12 @@ import Jumbotron from './Jumbotron/Jumbotron';
 import Welcome from './Welcome/Welcome';
 import Popular from './Popular/Popular';
 import Login from './Login/Login';
+import Contact from './Contact/Contact';
 import 'react-icons/';
 
 import { UserContext } from '../UserContext';
 
-import { Route } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 
 function Body() {
   const { schools, about } = useContext(UserContext);
@@ -18,9 +19,9 @@ function Body() {
   const coreText = 'These makes up who we are';
   return (
     <>
+      <Route exact path="/" render={renderProps => <Redirect to="/home" />} />
       <Route
-        exact
-        path="/"
+        path="/home"
         render={renderProps => (
           <>
             <Jumbotron />
@@ -37,7 +38,8 @@ function Body() {
           <Popular {...{ data: about, heading: ourCore, text: coreText }} />
         )}
       />
-      <Route path='/login' component={Login}/>
+      <Route path="/login" component={Login} />
+      <Route path="/contact" component={Contact} />
     </>
   );
 }

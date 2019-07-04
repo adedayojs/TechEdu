@@ -33,8 +33,10 @@
 }
 
 .welcome-items div:hover {
-  transform: scale(1);
+  transform: scale(1.05);
   transition: ease-in 0.3s;
   box-shadow: 0.5em 0.5em 2em #fff;
-  opacity: 0.5;
+  opacity: 0.8;
+  border:#34c4b4 solid 1px;
+  -moz-outline-radius: 2em 0em 2em 0em
 }

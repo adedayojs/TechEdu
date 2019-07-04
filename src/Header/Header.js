@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Header.css';
 import { FaPhone, FaEnvelope, FaSearch } from 'react-icons/fa';
+import { IsLoggedIn } from '../UserContext';
 
 import { Link, NavLink } from 'react-router-dom';
 
-function Header({ style }) {
+function Header({ match }) {
+  const { loggedin, setLoggedIn } = useContext(IsLoggedIn);
+  console.log(loggedin);
+  setLoggedIn(false);
+  console.log(loggedin);
+
+  console.log(match.params.id);
   const menu = ['Home', 'About', 'School', 'Courses', 'Blog', 'Contact'];
   return (
     <>
@@ -29,14 +36,12 @@ function Header({ style }) {
         </div>
         <div className="menu" id="menu">
           {menu.map(item => {
-            let path;
-            item === 'Home' ? (path = '/') : (path = `/${item}`);
             return (
               <NavLink
                 activeClassName="selectedLink"
                 exact
                 key={item}
-                to={path}
+                to={`/${item}`}
               >
                 <span> {item}</span>
               </NavLink>

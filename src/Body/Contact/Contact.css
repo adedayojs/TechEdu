@@ -1,0 +1,63 @@
+/**********
+**********
+Contact Page
+**********
+**********/
+.contact-section {
+  background: url('../../images/contact.svg');
+}
+
+.contact-section h1,
+p {
+  margin: 1em;
+}
+.contact-section h1 {
+  color: #0e4b44;
+  font-family: 'th3 machine', 'showcard gothic', 'russo one', Arial;
+  font-weight: 500;
+  font-size: 2em;
+}
+
+/**********
+**********
+Contact Form
+**********
+**********/
+
+.contact-form-section {
+  padding: 3em;
+  width: 50%;
+}
+
+.contact-text {
+  padding: 1em;
+  margin: 1em;
+  border: none;
+  border-radius: 1em;
+}
+.contact-textarea {
+  margin: 1em;
+  height: 20em;
+  border: none;
+  border-radius: 1em;
+  padding: 1em;
+}
+
+.form-button {
+  width: 20%;
+  margin: auto;
+  padding: 1em;
+  border-radius: 2em;
+  border: none;
+  background: #34b4c3;
+}
+
+/**********
+**********
+Contact Details
+**********
+**********/
+
+.contact-detail {
+  padding: 3em;
+}

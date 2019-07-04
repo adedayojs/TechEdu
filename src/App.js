@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { Route } from 'react-router-dom';
 
 import Header from './Header/Header';
 import Body from './Body/Body';
 import Footer from './Footer/Footer';
-import { UserContext } from './UserContext';
+import { UserContext, IsLoggedIn } from './UserContext';
 
 import './App.css';
 function App() {
   const [schools, setSchools] = useState([]);
   const [about, setAbout] = useState([]);
+  const [loggedin, setLoggedIn] = useState(true);
 
   useEffect(() => {
     fetch('/schools')
@@ -22,9 +24,11 @@ function App() {
 
   return (
     <UserContext.Provider value={{ schools, about }}>
-      <Header />
-      <Body />
-      <Footer />
+      <IsLoggedIn.Provider value={{ loggedin, setLoggedIn }}>
+        <Route exact path="/:id" component={Header} />
+        <Body />
+        <Footer />
+      </IsLoggedIn.Provider>
     </UserContext.Provider>
   );
 }

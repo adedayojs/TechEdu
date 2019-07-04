@@ -18,6 +18,11 @@
 .login-signup-details {
   margin: auto;
   width: 50%;
+  overflow: hidden;
+}
+.login-detail {
+  max-height: 70vh;
+  overflow: scroll;
 }
 .login-detail input {
   border-radius: 1em;
@@ -45,7 +50,7 @@
   border-radius: 2em;
   color: #34c4b3;
 }
-.login-detail div:nth-child(3) {
+.login-detail #login-submit {
   padding: 0em;
   background: #34c4b3;
 }

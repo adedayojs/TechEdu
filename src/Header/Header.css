@@ -17,7 +17,7 @@
 }
 
 .selectedLink {
-  background: rgba(52, 196, 180,0.5);
+  background: rgba(52, 196, 180, 0.5);
   color: #fff !important;
   text-decoration-style: solid 3px;
 }
@@ -83,4 +83,30 @@
 }
 .menu input:focus {
   outline: none;
+}
+
+/**********
+**********
+Media Queries 
+**********
+**********/
+
+@media (max-width: 700px) {
+  .second-header {
+    flex-direction: column;
+  }
+  #menu {
+    padding: 0.5em 0.5em;
+  }
+  #menu a {
+    padding: 0.5em 0.5em!important;
+  }
+}
+@media (max-width: 1000px) {
+  #menu a {
+    padding: 1.8em 0.5em;
+  }
+  .menu span {
+    padding: 0em 0em;
+  }
 }
