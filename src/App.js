@@ -23,6 +23,12 @@ function App() {
   }, []);
 
   return (
+    /*  Wrap the entire app with two context provider one to access the fetched data
+    the second to make the login status of the person accessible to the header,
+    which is rendered accross all pages. 
+    Basically authentication is done in the header, with the help of a state which is passed
+     accross your pages with the context api.
+    */
     <UserContext.Provider value={{ schools, about }}>
       <IsLoggedIn.Provider value={{ loggedin, setLoggedIn }}>
         <Route exact path="/:id" component={Header} />

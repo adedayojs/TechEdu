@@ -9,7 +9,6 @@ function Login() {
     let doc = document.querySelector('img');
     doc.style.transform = `perspective(300px) rotateX(${e.clientX /
       55}deg) rotateY(${e.clientY / 55}deg)`;
-    console.log(e.clientY, e.clientX);
   }
 
   return (

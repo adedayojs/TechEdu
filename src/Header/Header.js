@@ -7,9 +7,6 @@ import { Link, NavLink } from 'react-router-dom';
 
 function Header({ match }) {
   const { loggedin, setLoggedIn } = useContext(IsLoggedIn);
-  console.log(loggedin);
-  setLoggedIn(false);
-  console.log(loggedin);
 
   console.log(match.params.id);
   const menu = ['Home', 'About', 'School', 'Courses', 'Blog', 'Contact'];
@@ -25,9 +22,15 @@ function Header({ match }) {
             <FaEnvelope /> info@edutech.com
           </span>
         </div>
-        <Link className="register" to="./login">
-          <div>Register Or Login</div>
-        </Link>
+        {loggedin ? (
+          <Link className="register" onClick={()=>{setLoggedIn(false)}} to="./logout">
+            <div>Logout</div>
+          </Link>
+        ) : (
+          <Link className="register" to="./login">
+            <div>Register Or Login</div>
+          </Link>
+        )}
       </header>
       <header className="second-header flex space-between cross-center">
         <div>
