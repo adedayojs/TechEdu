@@ -4,7 +4,8 @@ import LoginDetails from './LoginDetails';
 import SignupDetails from './SigupDetails';
 import { Route } from 'react-router-dom';
 
-function Login() {
+function Login({match}) {
+  console.log(match.params)
   function translate(e) {
     let doc = document.querySelector('img');
     doc.style.transform = `perspective(300px) rotateX(${e.clientX /

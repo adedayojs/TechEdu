@@ -31,7 +31,7 @@ function App() {
     */
     <UserContext.Provider value={{ schools, about }}>
       <IsLoggedIn.Provider value={{ loggedin, setLoggedIn }}>
-        <Route exact path="/:id" component={Header} />
+        <Route  path="/:id" component={Header} />
         <Body />
         <Footer />
       </IsLoggedIn.Provider>

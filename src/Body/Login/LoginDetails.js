@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import {
   FaEnvelope,
   FaLock,
@@ -9,24 +9,29 @@ import { MdClose } from 'react-icons/md';
 import { Link, Redirect } from 'react-router-dom';
 import ky from 'ky';
 import Hash from '../HashGen';
+import { IsLoggedIn } from '../../UserContext';
 
 function LoginDetails() {
   //  ALgorithm for Hashing Password
+  const { setLoggedIn } = useContext(IsLoggedIn);
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [redirect, setRedirect] = useState(false);
   function loginChangeHandler(e) {
     switch (e.target.name) {
       case 'username':
         setUsername(e.target.value);
+        document.querySelector('#wrong').style.display = 'none';
         break;
       case 'password':
         setPassword(e.target.value);
+        document.querySelector('#wrong').style.display = 'none';
         break;
       case 'form':
         e.preventDefault();
         document.querySelector('#spinner').style.display = 'block'; // Display Your Spinner
-        const hashed = Hash(password);  //  Hash Your Password
+        const hashed = Hash(password); //  Hash Your Password
         ky(`/users?id=${username.toLowerCase()}&password=${hashed}`)
           // ky('https://api.github.com')
           .then(res => res.json())
@@ -37,11 +42,19 @@ function LoginDetails() {
               console.log('wrong', res);
               return;
             }
-            console.log(res);
+            console.log(res, hashed);
             document.querySelector('#right').style.display = 'block';
-            setTimeout(() => <Redirect to="home" />, 1500);
+            setLoggedIn(true);
+            setTimeout(() => setRedirect(true), 1500);
+            window.localStorage.setItem('IsLoggedIn', true);
+            window.localStorage.setItem('name', (()=>  username[0] + username.substring(1))());
+            return;
           })
-          .catch(err => console.log(err));
+          .catch(err => {
+            document.querySelector('#spinner').style.display = 'none';
+            document.querySelector('#wrong').style.display = 'block';
+            console.log(err);
+          });
 
         break;
       default:
@@ -95,6 +108,7 @@ function LoginDetails() {
           Create your account <FaLongArrowAltRight />
         </p>
       </Link>
+      {redirect === true ? <Redirect to="home" /> : null}
     </div>
   );
 }

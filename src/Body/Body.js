@@ -38,7 +38,7 @@ function Body() {
           <Popular {...{ data: about, heading: ourCore, text: coreText }} />
         )}
       />
-      <Route path="/login" component={Login} />
+      <Route  path="/login" component={Login} />
       <Route path="/contact" component={Contact} />
     </>
   );

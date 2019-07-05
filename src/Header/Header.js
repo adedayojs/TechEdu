@@ -22,16 +22,18 @@ function Header({ match }) {
             <FaEnvelope /> info@edutech.com
           </span>
         </div>
-        {/* If User is logged in Make the link point to logour otherwise point it to login */}
-        {loggedin ? (
+        {console.log(loggedin, localStorage.IsLoggedIn)}
+        {/* If User is logged in Make the link point to logout otherwise point it to login */}
+        { loggedin || Boolean(localStorage.IsLoggedIn) ? (
           <Link
             className="register"
             onClick={() => {
               setLoggedIn(false);
+              window.localStorage.clear()
             }}
-            to="./home"
+            to="./login"
           >
-            <div>Logout</div>
+            <div>Welcome, {window.localStorage.name} Click Here To Logout</div>
           </Link>
         ) : (
           <Link className="register" to="./login">

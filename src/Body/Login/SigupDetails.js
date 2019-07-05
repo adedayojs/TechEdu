@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { FaEnvelope, FaLock, FaLongArrowAltLeft, FaUser } from 'react-icons/fa';
+import { FaEnvelope, FaLock, FaLongArrowAltLeft, FaUser, FaCheck } from 'react-icons/fa';
 import { TiGroupOutline } from 'react-icons/ti';
-import { Link } from 'react-router-dom';
+import { MdClose } from 'react-icons/md';
+import { Link, Redirect } from 'react-router-dom';
 import Hash from '../HashGen';
 import ky from 'ky';
 
@@ -12,6 +13,7 @@ function SignupDetails() {
   const [lastname, setLastname] = useState('');
   const [password, setPassword] = useState('');
   const [ConfirmPassword, setConfirmPassword] = useState('');
+  const [redirect, setRedirect] = useState(false);
 
   function signupChangeHandler(e) {
     switch (e.target.name) {
@@ -39,6 +41,7 @@ function SignupDetails() {
           alert('Password and Confirm Password Do Not Match');
           return;
         }
+        document.querySelector('#spinner').style.display = 'block'; // Display Your Spinner
 
         const hashed = Hash(password);
         const data = {
@@ -57,10 +60,16 @@ function SignupDetails() {
         })
           .then(res => res.json())
           .then(res => {
-            if (Object.compare(data, res)) {
+            document.querySelector('#spinner').style.display = 'none'; // Display Your Spinner
+            if (JSON.stringify(res)===JSON.stringify(data)) {
+              document.querySelector('#right').style.display = 'block';
+              setTimeout(() => setRedirect(true), 1500);
             }
           })
-          .catch(err => console.log(err));
+          .catch(err => {
+            document.querySelector('#spinner').style.display = 'none'; // Display Your Spinner
+            document.querySelector('#wrong').style.display = 'block'; // Display Your Spinner
+            console.log(err)});
         break;
       default:
         return null;
@@ -143,7 +152,7 @@ function SignupDetails() {
           <span id="right">
             <FaCheck /> Login Successful
           </span>
-          <img id="spinner" src="./assets/img/spinner.svg" alt="spinner" />
+          <img id="spinner" src="../assets/img/spinner.svg" alt="spinner" />
         </div>
         <div id="login-submit">
           <button type="submit" placeholder="">
@@ -157,6 +166,7 @@ function SignupDetails() {
           <FaLongArrowAltLeft /> Sign In
         </p>
       </Link>
+      {redirect === true ? <Redirect to="localhost/home" /> : null}
     </div>
   );
 }

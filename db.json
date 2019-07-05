@@ -85,6 +85,70 @@
       "firstname": "adedayo",
       "lastname": "adedunye",
       "password": "8bfd7c7045fdc"
+    },
+    {
+      "id": "sq002@decagon.institute",
+      "username": "sq002@decagon.institute",
+      "email": "bobadeprojects@gmail.com",
+      "firstname": "adedayo",
+      "lastname": "lkhjg",
+      "password": "12f989a2691dbb"
+    },
+    {
+      "id": "ljkh",
+      "username": "ljkh",
+      "email": "bobadeprojects@gmail.com",
+      "firstname": "sdfghj",
+      "lastname": "sdfghjk",
+      "password": "180ab75032f878"
+    },
+    {
+      "id": "hg",
+      "username": "hg",
+      "email": "samfeolu@gmail.com",
+      "firstname": "sdfg",
+      "lastname": "sdf",
+      "password": "1d1720a42e73af"
+    },
+    {
+      "id": "deca",
+      "username": "deca",
+      "email": "samfeolu@gmail.com",
+      "firstname": "asde",
+      "lastname": "asdf",
+      "password": "5ad47a35712"
+    },
+    {
+      "id": "adedayo",
+      "username": "adedayo",
+      "email": "sam@jl.com",
+      "firstname": "ade",
+      "lastname": "ade",
+      "password": "5ad47a35712"
+    },
+    {
+      "id": "qwerty",
+      "username": "qwerty",
+      "email": "bobadeprojects@gmail.com",
+      "firstname": "11",
+      "lastname": "11",
+      "password": "1bedc4f084104a"
+    },
+    {
+      "id": "aedayo",
+      "username": "aedayo",
+      "email": "ade@ade.com",
+      "firstname": "ade",
+      "lastname": "ade",
+      "password": "1e46357355b713"
+    },
+    {
+      "id": "ades",
+      "username": "ades",
+      "email": "ade@sds.com",
+      "firstname": "jk",
+      "lastname": "jjknkl",
+      "password": "5ad47a35712"
     }
   ]
 }
