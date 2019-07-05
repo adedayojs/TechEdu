@@ -22,8 +22,15 @@ function Header({ match }) {
             <FaEnvelope /> info@edutech.com
           </span>
         </div>
+        {/* If User is logged in Make the link point to logour otherwise point it to login */}
         {loggedin ? (
-          <Link className="register" onClick={()=>{setLoggedIn(false)}} to="./logout">
+          <Link
+            className="register"
+            onClick={() => {
+              setLoggedIn(false);
+            }}
+            to="./home"
+          >
             <div>Logout</div>
           </Link>
         ) : (

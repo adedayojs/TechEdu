@@ -14,10 +14,14 @@
 .popular-div {
   background: #fff;
 }
+.popular-items {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+}
 .popular-items div {
   padding: 0em;
-  margin: 1em;
-  width: 33%;
+  margin: 1em auto;
+  width: 90%;
   border-radius: 2em 0em 2em 0em;
 }
 .school {

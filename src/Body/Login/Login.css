@@ -32,7 +32,27 @@
   background: transparent;
   outline: none;
 }
-
+.login-detail input:focus {
+  background: transparent;
+}
+#loader {
+  background: transparent !important;
+  
+}
+#wrong{
+  color:red;
+  font-size: 1em;
+  display: none;
+}
+#right{
+  font-size: 1em;
+  margin: 0em;
+  padding: 0em;
+  display: none;
+}
+#spinner{
+  display: none
+}
 .login-detail button {
   border-radius: 1em;
   border: none;

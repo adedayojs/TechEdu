@@ -10,7 +10,7 @@ import './App.css';
 function App() {
   const [schools, setSchools] = useState([]);
   const [about, setAbout] = useState([]);
-  const [loggedin, setLoggedIn] = useState(true);
+  const [loggedin, setLoggedIn] = useState(false);
 
   useEffect(() => {
     fetch('/schools')

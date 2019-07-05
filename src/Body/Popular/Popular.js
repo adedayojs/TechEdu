@@ -9,7 +9,7 @@ function Welcome({ data, heading, text }) {
         <h1>{heading}</h1>
         <p className="welcome-text">{text}</p>
       </div>
-      <div className="flex space-between welcome-items popular-items">
+      <div className="welcome-items popular-items">
         {data.map(item => (
           <div className="popular-div" key={item.id}>
             <img
@@ -19,7 +19,7 @@ function Welcome({ data, heading, text }) {
             />
             <h3 className="school">{item.name}</h3>
             <p className="school-detail">
-              {item.description.length > 250
+              {item.description||'No Description Found'.length  > 250
                 ? item.description.slice(0, 250) + '......'
                 : item.description}
             </p>
