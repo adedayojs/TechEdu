@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
-import { FaEnvelope, FaLock, FaLongArrowAltLeft, FaUser, FaCheck } from 'react-icons/fa';
+import {
+  FaEnvelope,
+  FaLock,
+  FaLongArrowAltLeft,
+  FaUser,
+  FaCheck
+} from 'react-icons/fa';
 import { TiGroupOutline } from 'react-icons/ti';
 import { MdClose } from 'react-icons/md';
 import { Link, Redirect } from 'react-router-dom';
@@ -61,15 +67,16 @@ function SignupDetails() {
           .then(res => res.json())
           .then(res => {
             document.querySelector('#spinner').style.display = 'none'; // Display Your Spinner
-            if (JSON.stringify(res)===JSON.stringify(data)) {
+            if (JSON.stringify(res) === JSON.stringify(data)) {
               document.querySelector('#right').style.display = 'block';
-              setTimeout(() => setRedirect(true), 1500);
+              setTimeout(() => setRedirect(true), 2000);
             }
           })
           .catch(err => {
             document.querySelector('#spinner').style.display = 'none'; // Display Your Spinner
             document.querySelector('#wrong').style.display = 'block'; // Display Your Spinner
-            console.log(err)});
+            console.log(err);
+          });
         break;
       default:
         return null;
@@ -147,16 +154,17 @@ function SignupDetails() {
         </div>
         <div id="loader" className="flex-column cross-center">
           <span id="wrong">
-            <MdClose /> Login Failed
+            <MdClose /> Signup Failed. Please Try Again
           </span>
           <span id="right">
-            <FaCheck /> Login Successful
+            <FaCheck /> Signup Successful. If You are not automatically
+            redirected please click <Link to="/login">Here.</Link>
           </span>
           <img id="spinner" src="../assets/img/spinner.svg" alt="spinner" />
         </div>
         <div id="login-submit">
           <button type="submit" placeholder="">
-            Submit
+            Sign Up
           </button>
         </div>
       </form>
@@ -166,7 +174,7 @@ function SignupDetails() {
           <FaLongArrowAltLeft /> Sign In
         </p>
       </Link>
-      {redirect === true ? <Redirect to="localhost/home" /> : null}
+      {redirect === true ? <Redirect to="/login" /> : null}
     </div>
   );
 }

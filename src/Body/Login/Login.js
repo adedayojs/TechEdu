@@ -19,7 +19,7 @@ function Login({match}) {
         onMouseMove={translate}
         className="login-image flex main-center"
       >
-        <img src="./assets/img/login.png" alt="login/signup" />
+        <img src="/assets/img/login.png" alt="login/signup" />
       </div>
       <div className="login-signup-details">
         <Route exact path="/login" component={LoginDetails} />

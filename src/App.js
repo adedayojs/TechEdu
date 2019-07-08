@@ -10,7 +10,7 @@ import './App.css';
 function App() {
   const [schools, setSchools] = useState([]);
   const [about, setAbout] = useState([]);
-  const [loggedin, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
 
   useEffect(() => {
     fetch('/schools')
@@ -30,8 +30,8 @@ function App() {
      accross your pages with the context api.
     */
     <UserContext.Provider value={{ schools, about }}>
-      <IsLoggedIn.Provider value={{ loggedin, setLoggedIn }}>
-        <Route  path="/:id" component={Header} />
+      <IsLoggedIn.Provider value={{ loggedIn, setLoggedIn }}>
+        <Route path="/:next" component={Header} />
         <Body />
         <Footer />
       </IsLoggedIn.Provider>

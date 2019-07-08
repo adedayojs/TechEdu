@@ -6,9 +6,9 @@ import { IsLoggedIn } from '../UserContext';
 import { Link, NavLink } from 'react-router-dom';
 
 function Header({ match }) {
-  const { loggedin, setLoggedIn } = useContext(IsLoggedIn);
+  const { loggedIn, setLoggedIn } = useContext(IsLoggedIn);
 
-  console.log(match.params.id);
+  console.log(match.params);
   const menu = ['Home', 'About', 'School', 'Courses', 'Blog', 'Contact'];
   return (
     <>
@@ -22,21 +22,21 @@ function Header({ match }) {
             <FaEnvelope /> info@edutech.com
           </span>
         </div>
-        {console.log(loggedin, localStorage.IsLoggedIn)}
+        {console.log(loggedIn, localStorage.IsLoggedIn)}
         {/* If User is logged in Make the link point to logout otherwise point it to login */}
-        { loggedin || Boolean(localStorage.IsLoggedIn) ? (
+        {loggedIn || Boolean(localStorage.IsLoggedIn) ? (
           <Link
             className="register"
             onClick={() => {
               setLoggedIn(false);
-              window.localStorage.clear()
+              window.localStorage.clear();
             }}
-            to="./login"
+            to="/login"
           >
             <div>Welcome, {window.localStorage.name} Click Here To Logout</div>
           </Link>
         ) : (
-          <Link className="register" to="./login">
+          <Link className="register" to="/login">
             <div>Register Or Login</div>
           </Link>
         )}

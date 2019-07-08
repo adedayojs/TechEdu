@@ -12,7 +12,6 @@ import Hash from '../HashGen';
 import { IsLoggedIn } from '../../UserContext';
 
 function LoginDetails() {
-  //  ALgorithm for Hashing Password
   const { setLoggedIn } = useContext(IsLoggedIn);
 
   const [username, setUsername] = useState('');
@@ -47,7 +46,10 @@ function LoginDetails() {
             setLoggedIn(true);
             setTimeout(() => setRedirect(true), 1500);
             window.localStorage.setItem('IsLoggedIn', true);
-            window.localStorage.setItem('name', (()=>  username[0] + username.substring(1))());
+            window.localStorage.setItem(
+              'name',
+              (() => username[0] + username.substring(1))()
+            );
             return;
           })
           .catch(err => {
@@ -91,7 +93,7 @@ function LoginDetails() {
         </div>
         <div id="loader" className="flex-column cross-center">
           <span id="wrong">
-            <MdClose /> Login Failed
+            <MdClose /> Login Failed. Username or Password Incorrect
           </span>
           <span id="right">
             <FaCheck /> Login Successful
@@ -99,7 +101,7 @@ function LoginDetails() {
           <img id="spinner" src="./assets/img/spinner.svg" alt="spinner" />
         </div>
         <div id="login-submit">
-          <button type="submit">Submit</button>
+          <button type="submit">Login</button>
         </div>
       </form>
       <p>Forgot Password/Username ?</p>

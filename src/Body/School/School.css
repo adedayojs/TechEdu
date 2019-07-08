@@ -1,0 +1,26 @@
+#school-page section {
+  background: inherit;
+}
+#section-two {
+  flex-basis: 100%;
+}
+.school-search {
+  width: fit-content;
+  margin: auto;
+  margin-top: 3em;
+}
+#school-search {
+  padding: 0.6em;
+}
+#section-two h1 {
+  text-align: center;
+}
+#section-two div,
+#section-two span {
+  margin-top: 1em;
+}
+#section-two input[type='text'],
+#section-two input[type='number'],
+#section-two textarea {
+  width: 90%;
+}

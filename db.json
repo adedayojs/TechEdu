@@ -149,6 +149,30 @@
       "firstname": "jk",
       "lastname": "jjknkl",
       "password": "5ad47a35712"
+    },
+    {
+      "id": "sammy",
+      "username": "sammy",
+      "email": "bobadeprojecst@jhk.co",
+      "firstname": "dead",
+      "lastname": "dead2 ",
+      "password": "5ad47a35712"
+    },
+    {
+      "id": "adura99",
+      "username": "adura99",
+      "email": "aduragbemi.sa@gmail.com",
+      "firstname": "aduragbgemi",
+      "lastname": "adedunye",
+      "password": "18d73533bd8fcf"
+    },
+    {
+      "id": "aderonke",
+      "username": "aderonke",
+      "email": "adedunye@yahoo.com",
+      "firstname": "tabitha",
+      "lastname": "adedunye",
+      "password": "11643ccb03bd53"
     }
   ]
 }
