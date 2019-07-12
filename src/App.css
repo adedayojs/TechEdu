@@ -1,25 +1,35 @@
 @import url('https://fonts.googleapis.com/css?family=Kurale&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Russo+One&display=swap');
 
-*{
-    font-family: kurale, menlo;
-    font-size: 14px;
+body {
+  font-family: kurale, menlo;
+  font-size: 14px;
+  background: rgb(212, 228, 238);
 }
-body{
-    background: #f1eded
+
+button {
+  cursor: pointer;
 }
-.flex{
-    display:flex
+a {
+  text-decoration-line: none;
+  color: initial;
 }
-.flex-column{
-    display:flex;
-    flex-direction: column
+a:visited {
+  color: initial;
+}
+.flex {
+  display: flex;
+}
+.flex-column {
+  display: flex;
+  flex-direction: column;
 }
 .main-center {
-    justify-content: center
+  justify-content: center;
 }
-.cross-center{
-    align-items: center
+.cross-center {
+  align-items: center;
 }
-.space-between{
-    justify-content: space-between
+.space-between {
+  justify-content: space-between;
 }

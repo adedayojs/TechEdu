@@ -1,8 +1,28 @@
 .first-header {
   background: #34c4b4;
 }
+.first-header a {
+  background: #d4e4ee;
+}
+.first-header a:hover {
+  background: #d4e4ee;
+  color: #34c4b4;
+  transition: ease-in-out 0.5s;
+}
 .first-header > div {
   padding: 1em 5%;
+}
+.register {
+  padding: 1em 5%;
+}
+
+.selectedLink {
+  background: rgba(52, 196, 180, 0.5);
+  color: #fff !important;
+  text-decoration-style: solid 3px;
+}
+.selectedLink span {
+  border-bottom: 2px solid #fff;
 }
 .first-header span {
   padding: 0em 1em;
@@ -14,7 +34,22 @@
 }
 .second-header {
   background: #fff;
+  position: sticky;
+  top: 0px;
+  z-index: 7;
 }
+#menu {
+  padding: 1.8em 5%;
+}
+#menu a {
+  padding: 1.8em 1em;
+}
+#menu a:hover {
+  background: #34c4b4;
+  transition: ease-in-out 0.5s;
+  color: #fff;
+}
+
 .second-header > div {
   padding: 1em 5%;
 }
@@ -34,18 +69,44 @@
 .menu form {
   display: inline-block;
 }
-.menu input{
-    border:none
+.menu input {
+  border: none;
 }
-.menu button{
-    background: none;
-    border:none;
+.menu button {
+  background: none;
+  border: none;
 }
-.menu form span{
-    border: solid 1px #34c4b4;
-    padding:0.39em;
-    border-radius: 2em;
+.menu form span {
+  border: solid 1px #34c4b4;
+  padding: 0.39em;
+  border-radius: 2em;
 }
-.menu input:focus{
-    outline: none
+.menu input:focus {
+  outline: none;
+}
+
+/**********
+**********
+Media Queries 
+**********
+**********/
+
+@media (max-width: 700px) {
+  .second-header {
+    flex-direction: column;
+  }
+  #menu {
+    padding: 0.5em 0.5em;
+  }
+  #menu a {
+    padding: 0.5em 0.5em!important;
+  }
+}
+@media (max-width: 1000px) {
+  #menu a {
+    padding: 1.8em 0.5em;
+  }
+  .menu span {
+    padding: 0em 0em;
+  }
 }
