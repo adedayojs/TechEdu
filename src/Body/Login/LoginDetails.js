@@ -45,10 +45,10 @@ function LoginDetails() {
             document.querySelector('#right').style.display = 'block';
             setLoggedIn(true);
             setTimeout(() => setRedirect(true), 1500);
-            window.localStorage.setItem('IsLoggedIn', true);
-            window.localStorage.setItem(
+            localStorage.setItem('IsLoggedIn', true);
+            localStorage.setItem(
               'name',
-              (() => username[0] + username.substring(1))()
+              (() => username[0].toUpperCase() + username.substring(1))()
             );
             return;
           })

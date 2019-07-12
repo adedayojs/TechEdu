@@ -1,17 +1,23 @@
 import React, { useState } from 'react';
+import ky from 'ky';
 
 function AddSchool() {
-  const [name, setName] = useState('');
+  const [schoolName, setSchoolName] = useState('');
   const [location, setLocation] = useState('');
-  const [deptNum, setDeptNum] = useState('');
+  const [deptNum, setDeptNum] = useState(0);
   const [description, setDescription] = useState('');
+
   function addSchoolHandler(e) {
+    console.log('This function was called');
+    e.preventDefault();
+    console.log(e.target);
+
     switch (e.target.name) {
       case 'name':
-        setName(e.target.value);
+        setSchoolName(e.target.value);
         break;
       case 'location':
-        setLocation(e.terget.value);
+        setLocation(e.target.value);
         break;
       case 'deptNum':
         setDeptNum(e.target.value);
@@ -19,9 +25,30 @@ function AddSchool() {
       case 'description':
         setDescription(e.target.value);
         break;
-      case 'add-school-form':
-        e.preventDefault();
-        alert('I see You');
+      case 'form':
+        console.log('Submtteed');
+
+        document.querySelector('#spinner').style.display = 'block'; // Display Your Spinner
+        let data;
+        ky('/schools', {
+          method: 'post',
+          json: {
+            ...data
+          }
+        })
+          .then(res => res.json())
+          .then(res => {
+            document.querySelector('#spinner').style.display = 'none'; // Display Your Spinner
+            if (JSON.stringify(res) === JSON.stringify(data)) {
+              document.querySelector('#right').style.display = 'block';
+              // setTimeout(() => setRedirect(true), 2000);
+            }
+          })
+          .catch(err => {
+            document.querySelector('#spinner').style.display = 'none'; // Display Your Spinner
+            document.querySelector('#wrong').style.display = 'block'; // Display Your Spinner
+            console.log(err);
+          });
         break;
       default:
         break;
@@ -30,18 +57,14 @@ function AddSchool() {
 
   return (
     <section id="section-two">
-      <form
-        onSubmit={addSchoolHandler}
-        name="add-school-form"
-        className="jumbotron-form"
-      >
+      <form name="form" onSubmit={addSchoolHandler} className="jumbotron-form">
         <h1>Add School</h1>
         (Note: You can Update A School Only After Adding It To Our Database)
         <div>
           <input
             type="text"
             name="name"
-            value={name}
+            value={schoolName}
             onChange={addSchoolHandler}
             placeholder="School Name"
           />
@@ -51,6 +74,7 @@ function AddSchool() {
             type="text"
             name="location"
             value={location}
+            onChange={addSchoolHandler}
             placeholder="School State Location"
           />
         </div>
@@ -59,6 +83,7 @@ function AddSchool() {
             type="number"
             name="deptNum"
             value={deptNum}
+            onChange={addSchoolHandler}
             placeholder="Number Of Departments"
           />
         </div>
@@ -73,6 +98,7 @@ function AddSchool() {
             type="textarea"
             name="description"
             value={description}
+            onChange={addSchoolHandler}
             placeholder="School Description "
           />
         </div>
