@@ -13,13 +13,16 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false);
 
   useEffect(() => {
-    fetch('/schools')
+    fetch('/apis/schools')
       .then(res => res.json())
       .then(res => setSchools(res));
 
-    fetch('/about')
+    fetch('/apis/about')
       .then(res => res.json())
-      .then(res => setAbout(res));
+      .then(res => {
+        console.log(res);
+        setAbout(res);
+      });
   }, []);
 
   return (

@@ -5,7 +5,7 @@ import Popular from './Popular/Popular';
 import Login from './Login/Login';
 import Contact from './Contact/Contact';
 import School from './School/School';
-import _404 from './_404'
+import _404 from './_404';
 import 'react-icons/';
 
 import { UserContext } from '../UserContext';
@@ -33,12 +33,14 @@ function Body() {
             </>
           )}
         />
-        <Route exact path="/about" render={renderProps => <Welcome />} />
         <Route
           exact
           path="/about"
           render={renderProps => (
-            <Popular {...{ data: about, heading: ourCore, text: coreText }} />
+            <>
+              <Welcome />
+              <Popular {...{ data: about, heading: ourCore, text: coreText }} />
+            </>
           )}
         />
         <Route path="/School" render={renderProps => <School />} />

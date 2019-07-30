@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ky from 'ky';
+// import ky from 'ky';
 
 function AddSchool() {
   const [schoolName, setSchoolName] = useState('');
@@ -30,7 +30,7 @@ function AddSchool() {
 
         document.querySelector('#spinner').style.display = 'block'; // Display Your Spinner
         let data;
-        ky('/schools', {
+        fetch('/schools', {
           method: 'post',
           json: {
             ...data

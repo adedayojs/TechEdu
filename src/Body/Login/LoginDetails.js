@@ -7,7 +7,7 @@ import {
 } from 'react-icons/fa';
 import { MdClose } from 'react-icons/md';
 import { Link, Redirect } from 'react-router-dom';
-import ky from 'ky';
+// import ky from 'ky';
 import Hash from '../HashGen';
 import { IsLoggedIn } from '../../UserContext';
 
@@ -31,7 +31,7 @@ function LoginDetails() {
         e.preventDefault();
         document.querySelector('#spinner').style.display = 'block'; // Display Your Spinner
         const hashed = Hash(password); //  Hash Your Password
-        ky(`/users?id=${username.toLowerCase()}&password=${hashed}`)
+        fetch(`/users?id=${username.toLowerCase()}&password=${hashed}`)
           // ky('https://api.github.com')
           .then(res => res.json())
           .then(res => {

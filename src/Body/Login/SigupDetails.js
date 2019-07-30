@@ -10,7 +10,7 @@ import { TiGroupOutline } from 'react-icons/ti';
 import { MdClose } from 'react-icons/md';
 import { Link, Redirect } from 'react-router-dom';
 import Hash from '../HashGen';
-import ky from 'ky';
+// import ky from 'ky';
 
 function SignupDetails() {
   const [username, setUsername] = useState('');
@@ -58,7 +58,7 @@ function SignupDetails() {
           lastname: lastname.toLowerCase(),
           password: hashed
         };
-        ky('/users', {
+        fetch('/users', {
           method: 'post',
           json: {
             ...data
