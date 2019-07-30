@@ -1,6 +1,7 @@
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
+const fs = require('fs');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
@@ -23,6 +24,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/apis', apiRouter);
+
+const clientDirectory = path.join(__dirname, '../', '/build');
+
+if (fs.existsSync(clientDirectory) && process.env.NODE_ENV !== 'development') {
+  app.use(express.static(clientDirectory));
+
+  app.get('/*', (_req, res) => {
+    res.sendFile(path.join(clientDirectory, 'index.html'));
+  });
+}
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
