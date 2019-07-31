@@ -47,13 +47,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/apis', apiRouter);
 
 const clientDirectory = path.join(__dirname, '../', '/build');
 
 if (fs.existsSync(clientDirectory) && process.env.NODE_ENV === 'production') {
+  console.log('Production Environment');
   app.use(express.static(clientDirectory));
   app.get('/*', (_req, res) => {
     res.sendFile(path.join(clientDirectory, 'index.html'));
