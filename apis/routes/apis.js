@@ -69,6 +69,7 @@ router.get('/about', function(req, res, next) {
   res.json(about);
 });
 
+  
 router.get('/schools', function(req, res, next) {
   res.json(schools);
 });

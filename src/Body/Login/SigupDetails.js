@@ -51,7 +51,6 @@ function SignupDetails() {
 
         const hashed = Hash(password);
         const data = {
-          id: username.toLowerCase(),
           username: username.toLowerCase(),
           email: email.toLowerCase(),
           firstname: firstname.toLowerCase(),
@@ -60,14 +59,22 @@ function SignupDetails() {
         };
         fetch('/users', {
           method: 'post',
-          json: {
-            ...data
+          body: JSON.stringify(data),
+          headers: {
+            'Content-Type': 'application/json'
           }
         })
-          .then(res => res.json())
           .then(res => {
+            if (res.status > 399) {
+              document.querySelector('#spinner').style.display = 'none'; // Remove Your Spinner
+              document.querySelector('#wrong').style.display = 'block'; // Display Your Wrong
+            }
+            return res.json();
+          })
+          .then(res => {
+            console.log(res);
             document.querySelector('#spinner').style.display = 'none'; // Display Your Spinner
-            if (JSON.stringify(res) === JSON.stringify(data)) {
+            if (res._id) {
               document.querySelector('#right').style.display = 'block';
               setTimeout(() => setRedirect(true), 2000);
             }
@@ -75,7 +82,7 @@ function SignupDetails() {
           .catch(err => {
             document.querySelector('#spinner').style.display = 'none'; // Display Your Spinner
             document.querySelector('#wrong').style.display = 'block'; // Display Your Spinner
-            console.log(err);
+            // console.log(err);
           });
         break;
       default:

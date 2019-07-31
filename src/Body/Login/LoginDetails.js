@@ -31,7 +31,7 @@ function LoginDetails() {
         e.preventDefault();
         document.querySelector('#spinner').style.display = 'block'; // Display Your Spinner
         const hashed = Hash(password); //  Hash Your Password
-        fetch(`/users?id=${username.toLowerCase()}&password=${hashed}`)
+        fetch(`/users?username=${username.toLowerCase()}&password=${hashed}`)
           // ky('https://api.github.com')
           .then(res => res.json())
           .then(res => {

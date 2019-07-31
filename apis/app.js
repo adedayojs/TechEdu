@@ -4,12 +4,38 @@ var path = require('path');
 const fs = require('fs');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const mongoose = require('mongoose');
+require('dotenv').config();
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const apiRouter = require('./routes/apis');
 
 var app = express();
+const databaseUrl = process.env.MONGO_URL;
+mongoose
+  .connect(databaseUrl, { useNewUrlParser: true, useCreateIndex: true })
+  .catch(err => err);
+const db = mongoose.connection;
+db.on('error', () => {
+  console.log('Connection Failed');
+  let sec = new Number(3);
+  let retry = setInterval(() => {
+    if (sec > 0) {
+      console.log(`Retrying In ${sec} Second(s)`);
+    } else {
+      console.log('Retrying Now......');
+      clearInterval(retry);
+      mongoose
+        .connect(databaseUrl, { useNewUrlParser: true, useCreateIndex: true })
+        .catch(err => err);
+    }
+    sec--;
+  }, 1000);
+});
+db.once('open', function() {
+  console.log('Connection Successfully Established');
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -27,9 +53,8 @@ app.use('/apis', apiRouter);
 
 const clientDirectory = path.join(__dirname, '../', '/build');
 
-if (fs.existsSync(clientDirectory) && process.env.NODE_ENV !== 'development') {
+if (fs.existsSync(clientDirectory) && process.env.NODE_ENV === 'production') {
   app.use(express.static(clientDirectory));
-
   app.get('/*', (_req, res) => {
     res.sendFile(path.join(clientDirectory, 'index.html'));
   });
