@@ -12,17 +12,17 @@ import usersRouter from './routes/users';
 import apiRouter from './routes/apis';
 
 var app = express();
-const databaseUrl =
+const databaseUrl: string =
   process.env.NODE_ENV == 'test'
     ? 'mongodb://localhost/test'
-    : process.env.MONGO_URL;
+    : process.env.MONGO_URL || 'null';
 mongoose
   .connect(databaseUrl, { useNewUrlParser: true, useCreateIndex: true })
   .catch(err => err);
 const db = mongoose.connection;
 db.on('error', () => {
   console.log('Connection Failed');
-  let sec = new Number(3);
+  let sec: number = 3;
   let retry = setInterval(() => {
     if (sec > 0) {
       console.log(`Retrying In ${sec} Second(s)`);
@@ -37,11 +37,11 @@ db.on('error', () => {
   }, 1000);
 });
 db.once('open', function() {
-  console.log(`Connected to ${databaseUrl}`);
+  // console.log(`Connected to ${databaseUrl}`);
 });
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, '../views'));
 app.set('view engine', 'jade');
 
 app.use(logger('dev'));
@@ -69,7 +69,12 @@ app.use(function(req, res, next) {
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function(
+  err: any,
+  req: express.Request,
+  res: express.Response,
+  next: express.NextFunction
+) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};

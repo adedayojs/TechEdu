@@ -16,14 +16,14 @@ const apis_1 = __importDefault(require("./routes/apis"));
 var app = express_1.default();
 const databaseUrl = process.env.NODE_ENV == 'test'
     ? 'mongodb://localhost/test'
-    : process.env.MONGO_URL;
+    : process.env.MONGO_URL || 'null';
 mongoose_1.default
     .connect(databaseUrl, { useNewUrlParser: true, useCreateIndex: true })
     .catch(err => err);
 const db = mongoose_1.default.connection;
 db.on('error', () => {
     console.log('Connection Failed');
-    let sec = new Number(3);
+    let sec = 3;
     let retry = setInterval(() => {
         if (sec > 0) {
             console.log(`Retrying In ${sec} Second(s)`);
@@ -39,10 +39,10 @@ db.on('error', () => {
     }, 1000);
 });
 db.once('open', function () {
-    console.log(`Connected to ${databaseUrl}`);
+    // console.log(`Connected to ${databaseUrl}`);
 });
 // view engine setup
-app.set('views', path_1.default.join(__dirname, 'views'));
+app.set('views', path_1.default.join(__dirname, '../views'));
 app.set('view engine', 'jade');
 app.use(morgan_1.default('dev'));
 app.use(express_1.default.json());

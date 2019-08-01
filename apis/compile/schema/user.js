@@ -1,6 +1,7 @@
 "use strict";
-const { Schema } = require('mongoose');
-const user = new Schema({
+Object.defineProperty(exports, "__esModule", { value: true });
+const mongoose_1 = require("mongoose");
+const user = new mongoose_1.Schema({
     username: { type: String, required: true },
     firstname: { type: String, required: true },
     lastname: { type: String, required: true },
@@ -8,5 +9,5 @@ const user = new Schema({
     email: { type: String, required: true },
     password: { type: String, required: true }
 });
-module.exports = { user };
+exports.default = user;
 //# sourceMappingURL=user.js.map
