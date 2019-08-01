@@ -10,16 +10,12 @@ const fs_1 = __importDefault(require("fs"));
 const cookie_parser_1 = __importDefault(require("cookie-parser"));
 const morgan_1 = __importDefault(require("morgan"));
 const mongoose_1 = __importDefault(require("mongoose"));
-process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== 'test'
-    ? require('dotenv').config()
-    : undefined;
+require('dotenv').config();
 const users_1 = __importDefault(require("./routes/users"));
 const apis_1 = __importDefault(require("./routes/apis"));
 var app = express_1.default();
-const databaseUrl = process.env.NODE_ENV == 'local'
-    ? 'mongodb://localhost/development'
-    : process.env.MONGO_URL || 'null';
-console.log(process.env.MONGO_URL);
+const databaseUrl = process.env.MONGO_URL || 'mongodb://localhost/development';
+console.log(process.env.NODE_ENV);
 mongoose_1.default
     .connect(databaseUrl, { useNewUrlParser: true, useCreateIndex: true })
     .catch(err => err);

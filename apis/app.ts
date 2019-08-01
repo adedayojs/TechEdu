@@ -5,19 +5,15 @@ import fs from 'fs';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 import mongoose from 'mongoose';
-process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== 'test'
-  ? require('dotenv').config()
-  : undefined;
+require('dotenv').config();
 
 import indexRouter from './routes/index';
 import usersRouter from './routes/users';
 import apiRouter from './routes/apis';
 var app = express();
 const databaseUrl: string =
-  process.env.NODE_ENV == 'local'
-    ? 'mongodb://localhost/development'
-    : process.env.MONGO_URL || 'null';
-console.log(process.env.MONGO_URL);
+  process.env.MONGO_URL || 'mongodb://localhost/development';
+console.log(process.env.NODE_ENV);
 mongoose
   .connect(databaseUrl, { useNewUrlParser: true, useCreateIndex: true })
   .catch(err => err);
