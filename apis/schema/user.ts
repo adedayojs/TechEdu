@@ -1,4 +1,4 @@
-const { Schema } = require('mongoose');
+import { Schema } from 'mongoose';
 
 const user = new Schema({
   username: { type: String, required: true },
@@ -9,4 +9,4 @@ const user = new Schema({
   password: { type: String, required: true }
 });
 
-module.exports = { user };
+export default user ;

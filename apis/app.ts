@@ -1,25 +1,28 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-const fs = require('fs');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-const mongoose = require('mongoose');
-require('dotenv').config();
+import createError from 'http-errors';
+import express from 'express';
+import path from 'path';
+import fs from 'fs';
+import cookieParser from 'cookie-parser';
+import logger from 'morgan';
+import mongoose from 'mongoose';
+process.env.NODE_ENV !== 'production' ? require('dotenv').config() : undefined;
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-const apiRouter = require('./routes/apis');
+import indexRouter from './routes/index';
+import usersRouter from './routes/users';
+import apiRouter from './routes/apis';
 
 var app = express();
-const databaseUrl = process.env.MONGO_URL;
+const databaseUrl: string =
+  process.env.NODE_ENV == 'test'
+    ? 'mongodb://localhost/test'
+    : process.env.MONGO_URL || 'null';
 mongoose
   .connect(databaseUrl, { useNewUrlParser: true, useCreateIndex: true })
   .catch(err => err);
 const db = mongoose.connection;
 db.on('error', () => {
   console.log('Connection Failed');
-  let sec = new Number(3);
+  let sec: number = 3;
   let retry = setInterval(() => {
     if (sec > 0) {
       console.log(`Retrying In ${sec} Second(s)`);
@@ -34,11 +37,11 @@ db.on('error', () => {
   }, 1000);
 });
 db.once('open', function() {
-  console.log('Connection Successfully Established');
+  // console.log(`Connected to ${databaseUrl}`);
 });
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, '../views'));
 app.set('view engine', 'jade');
 
 app.use(logger('dev'));
@@ -47,13 +50,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/apis', apiRouter);
 
 const clientDirectory = path.join(__dirname, '../', '/build');
 
 if (fs.existsSync(clientDirectory) && process.env.NODE_ENV === 'production') {
+  console.log('Production Environment');
   app.use(express.static(clientDirectory));
   app.get('/*', (_req, res) => {
     res.sendFile(path.join(clientDirectory, 'index.html'));
@@ -66,7 +69,12 @@ app.use(function(req, res, next) {
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function(
+  err: any,
+  req: express.Request,
+  res: express.Response,
+  next: express.NextFunction
+) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
