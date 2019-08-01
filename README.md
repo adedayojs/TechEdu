@@ -1,4 +1,4 @@
-# TechEdu
+# TechEdu      [![CircleCI](https://circleci.com/gh/adedayojs/techedu.svg?style=shield)](https://circleci.com/gh/adedayojs/techedu)
 An online Institution Directory.
 
 ## Description
