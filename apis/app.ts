@@ -5,17 +5,19 @@ import fs from 'fs';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 import mongoose from 'mongoose';
-process.env.NODE_ENV !== 'production' ? require('dotenv').config() : undefined;
+process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== 'test'
+  ? require('dotenv').config()
+  : undefined;
 
 import indexRouter from './routes/index';
 import usersRouter from './routes/users';
 import apiRouter from './routes/apis';
-
 var app = express();
 const databaseUrl: string =
-  process.env.NODE_ENV == 'test'
-    ? 'mongodb://localhost/test'
+  process.env.NODE_ENV == 'local'
+    ? 'mongodb://localhost/development'
     : process.env.MONGO_URL || 'null';
+console.log(process.env.MONGO_URL);
 mongoose
   .connect(databaseUrl, { useNewUrlParser: true, useCreateIndex: true })
   .catch(err => err);
@@ -37,7 +39,7 @@ db.on('error', () => {
   }, 1000);
 });
 db.once('open', function() {
-  // console.log(`Connected to ${databaseUrl}`);
+  console.log(`Connected to ${databaseUrl}`);
 });
 
 // view engine setup

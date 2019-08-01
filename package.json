@@ -39,6 +39,7 @@
     ]
   },
   "devDependencies": {
+    "@types/jest": "^24.0.16",
     "jest": "24.7.1",
     "json-server": "^0.15.0",
     "ky": "^0.11.1"

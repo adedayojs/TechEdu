@@ -10,13 +10,16 @@ const fs_1 = __importDefault(require("fs"));
 const cookie_parser_1 = __importDefault(require("cookie-parser"));
 const morgan_1 = __importDefault(require("morgan"));
 const mongoose_1 = __importDefault(require("mongoose"));
-process.env.NODE_ENV !== 'production' ? require('dotenv').config() : undefined;
+process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== 'test'
+    ? require('dotenv').config()
+    : undefined;
 const users_1 = __importDefault(require("./routes/users"));
 const apis_1 = __importDefault(require("./routes/apis"));
 var app = express_1.default();
-const databaseUrl = process.env.NODE_ENV == 'test'
-    ? 'mongodb://localhost/test'
+const databaseUrl = process.env.NODE_ENV == 'local'
+    ? 'mongodb://localhost/development'
     : process.env.MONGO_URL || 'null';
+console.log(process.env.MONGO_URL);
 mongoose_1.default
     .connect(databaseUrl, { useNewUrlParser: true, useCreateIndex: true })
     .catch(err => err);
@@ -39,7 +42,7 @@ db.on('error', () => {
     }, 1000);
 });
 db.once('open', function () {
-    // console.log(`Connected to ${databaseUrl}`);
+    console.log(`Connected to ${databaseUrl}`);
 });
 // view engine setup
 app.set('views', path_1.default.join(__dirname, '../views'));
