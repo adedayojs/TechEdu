@@ -49,7 +49,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/users', usersRouter);
-app.use('/apis', apiRouter);
+app.use('/api', apiRouter);
 
 const clientDirectory = path.join(__dirname, '../', '/build');
 
