@@ -1,18 +1,21 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-const fs = require('fs');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-const mongoose = require('mongoose');
-require('dotenv').config();
+import createError from 'http-errors';
+import express from 'express';
+import path from 'path';
+import fs from 'fs';
+import cookieParser from 'cookie-parser';
+import logger from 'morgan';
+import mongoose from 'mongoose';
+process.env.NODE_ENV !== 'production' ? require('dotenv').config() : undefined;
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-const apiRouter = require('./routes/apis');
+import indexRouter from './routes/index';
+import usersRouter from './routes/users';
+import apiRouter from './routes/apis';
 
 var app = express();
-const databaseUrl = process.env.MONGO_URL;
+const databaseUrl =
+  process.env.NODE_ENV == 'test'
+    ? 'mongodb://localhost/test'
+    : process.env.MONGO_URL;
 mongoose
   .connect(databaseUrl, { useNewUrlParser: true, useCreateIndex: true })
   .catch(err => err);
@@ -34,7 +37,7 @@ db.on('error', () => {
   }, 1000);
 });
 db.once('open', function() {
-  console.log('Connection Successfully Established');
+  console.log(`Connected to ${databaseUrl}`);
 });
 
 // view engine setup
