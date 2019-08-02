@@ -53,6 +53,7 @@ app.use('/apis', apiRouter);
 
 const clientDirectory = path.join(__dirname, '../../', '/build');
 
+console.log('got here')
 if (fs.existsSync(clientDirectory) && process.env.NODE_ENV === 'production') {
   console.log('Production Environment');
   app.use(express.static(clientDirectory));
@@ -60,6 +61,7 @@ if (fs.existsSync(clientDirectory) && process.env.NODE_ENV === 'production') {
     res.sendFile(path.join(clientDirectory, 'index.html'));
   });
 }
+console.log('Passed Here')
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
