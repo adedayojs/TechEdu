@@ -50,7 +50,8 @@ app.use(cookie_parser_1.default());
 app.use(express_1.default.static(path_1.default.join(__dirname, 'public')));
 app.use('/users', users_1.default);
 app.use('/apis', apis_1.default);
-const clientDirectory = path_1.default.join(__dirname, '../', '/build');
+const clientDirectory = path_1.default.join(__dirname, '../../', '/build');
+console.log('got here');
 if (fs_1.default.existsSync(clientDirectory) && process.env.NODE_ENV === 'production') {
     console.log('Production Environment');
     app.use(express_1.default.static(clientDirectory));
@@ -58,6 +59,7 @@ if (fs_1.default.existsSync(clientDirectory) && process.env.NODE_ENV === 'produc
         res.sendFile(path_1.default.join(clientDirectory, 'index.html'));
     });
 }
+console.log('Passed Here');
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
     next(http_errors_1.default(404));
