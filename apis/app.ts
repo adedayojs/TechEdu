@@ -51,7 +51,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/users', usersRouter);
 app.use('/apis', apiRouter);
 
-const clientDirectory = path.join(__dirname, '../', '/build');
+const clientDirectory = path.join(__dirname, '../../', '/build');
 
 if (fs.existsSync(clientDirectory) && process.env.NODE_ENV === 'production') {
   console.log('Production Environment');
