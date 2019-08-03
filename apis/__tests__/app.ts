@@ -17,5 +17,16 @@ describe('apis/school', () => {
     });
   });
 
-  describe('All Post Request', () => {});
+  describe('All Post Request', () => {
+    test('it should return status code 200', async () => {
+      const result = await request(app).post('/apis/schools');
+      expect(result.status).toBe(200);
+    });
+    test('it should return status code 200', async () => {
+      const result = await request(app).post('/apis/schools', () => ({
+        name: 'Ade'
+      }));
+      expect(result.status).toBe(200);
+    });
+  });
 });

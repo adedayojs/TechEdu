@@ -14,15 +14,26 @@ require('dotenv').config();
 const users_1 = __importDefault(require("./routes/users"));
 const apis_1 = __importDefault(require("./routes/apis"));
 var app = express_1.default();
-const databaseUrl = process.env.MONGO_URL || 'mongodb://localhost/development';
-console.log(process.env.NODE_ENV);
+//  Mongo Connect String
+let databaseUrl;
+switch (process.env.NODE_ENV) {
+    case 'test':
+        databaseUrl = 'mongodb://localhost/test';
+        break;
+    default:
+        databaseUrl = process.env.MONGO_URL || 'mongodb://localhost/development';
+        break;
+}
+// Connect To your Database
 mongoose_1.default
     .connect(databaseUrl, { useNewUrlParser: true, useCreateIndex: true })
     .catch(err => err);
 const db = mongoose_1.default.connection;
+//  Handle Database Connection Error To Retry Connecting
 db.on('error', () => {
     console.log('Connection Failed');
     let sec = 3;
+    //  Set Interval to connect after 3 seconds
     let retry = setInterval(() => {
         if (sec > 0) {
             console.log(`Retrying In ${sec} Second(s)`);
@@ -51,7 +62,7 @@ app.use(express_1.default.static(path_1.default.join(__dirname, 'public')));
 app.use('/users', users_1.default);
 app.use('/apis', apis_1.default);
 const clientDirectory = path_1.default.join(__dirname, '../../', '/build');
-console.log('got here');
+//  Forward All Routes By Default to React Build if In Production Mode
 if (fs_1.default.existsSync(clientDirectory) && process.env.NODE_ENV === 'production') {
     console.log('Production Environment');
     app.use(express_1.default.static(clientDirectory));
@@ -59,7 +70,6 @@ if (fs_1.default.existsSync(clientDirectory) && process.env.NODE_ENV === 'produc
         res.sendFile(path_1.default.join(clientDirectory, 'index.html'));
     });
 }
-console.log('Passed Here');
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
     next(http_errors_1.default(404));
