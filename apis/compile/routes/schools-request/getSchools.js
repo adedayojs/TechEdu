@@ -5,5 +5,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const router = express_1.default.Router();
+router.get('/', function (req, res) {
+    res.send(200).send('how are you').end();
+});
 exports.default = router;
 //# sourceMappingURL=getSchools.js.map

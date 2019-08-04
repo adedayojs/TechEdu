@@ -13,12 +13,11 @@ describe('apis/school', () => {
     });
     test('it should not be empty', async () => {
       const result = await request(app).get('/apis/schools');
-      console.log(result.body);
       expect(result.body).not.toEqual({});
     });
   });
 
-  describe('All form of POST Request', async () => {
+  describe('All form of POST Request', () => {
     test('Sending without a body should give bad request (400)', async () => {
       const result = await request(app).post('/apis/schools');
       expect(result.status).toBe(400);
