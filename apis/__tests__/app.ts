@@ -6,24 +6,24 @@ afterAll(async () => {
   await mongoose.connection.close();
 });
 describe('apis/school', () => {
-  describe('All Get Request', () => {
+  describe('All form of GET Request', () => {
     test('it should return status code 200', async () => {
       const result = await request(app).get('/apis/schools');
       expect(result.status).toBe(200);
     });
-    test('it should be defined', async () => {
+    test('it should not be empty', async () => {
       const result = await request(app).get('/apis/schools');
-      console.log(result.body)
+      console.log(result.body);
       expect(result.body).not.toEqual({});
     });
   });
 
-  describe('All Post Request', () => {
-    test('it should return status code 200', async () => {
+  describe('All form of POST Request', async () => {
+    test('Sending without a body should give bad request (400)', async () => {
       const result = await request(app).post('/apis/schools');
-      expect(result.status).toBe(200);
+      expect(result.status).toBe(400);
     });
-    test('it should return bad request', async () => {
+    test('Sending with an invalid body should give bad request (400)', async () => {
       const result = await request(app)
         .post('/apis/schools')
         .send('All Is Well');
