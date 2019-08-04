@@ -5,7 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 var router = express_1.default.Router();
-const user_1 = __importDefault(require("../model/user"));
+const user_1 = __importDefault(require("../model/mongoose/user"));
 /* GET users listing. */
 router.get('/', (req, res) => {
     console.log('Get Request');
