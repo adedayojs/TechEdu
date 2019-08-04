@@ -13,7 +13,8 @@ describe('apis/school', () => {
     });
     test('it should be defined', async () => {
       const result = await request(app).get('/apis/schools');
-      expect(result).toBeDefined();
+      console.log(result.body)
+      expect(result.body).not.toEqual({});
     });
   });
 
@@ -22,11 +23,11 @@ describe('apis/school', () => {
       const result = await request(app).post('/apis/schools');
       expect(result.status).toBe(200);
     });
-    test('it should return status code 200', async () => {
-      const result = await request(app).post('/apis/schools', () => ({
-        name: 'Ade'
-      }));
-      expect(result.status).toBe(200);
+    test('it should return bad request', async () => {
+      const result = await request(app)
+        .post('/apis/schools')
+        .send('All Is Well');
+      expect(result.status).toBe(400);
     });
   });
 });

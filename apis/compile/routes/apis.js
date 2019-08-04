@@ -4,6 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
+const schools_1 = __importDefault(require("./schools"));
 const router = express_1.default.Router();
 const about = [
     {
@@ -25,7 +26,7 @@ const about = [
         icon: './assets/img/mission.webp'
     }
 ];
-const schools = [
+const school = [
     {
         id: 1,
         name: 'Unilag',
@@ -63,12 +64,10 @@ const schools = [
         id: 7
     }
 ];
-/* GET users listing. */
 router.get('/about', function (req, res, next) {
     res.json(about);
 });
-router.get('/schools', function (req, res, next) {
-    res.json(schools);
-});
+// Handles All Request to /schools route
+router.use('/schools', schools_1.default);
 exports.default = router;
 //# sourceMappingURL=apis.js.map
