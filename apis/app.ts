@@ -14,14 +14,8 @@ var app = express();
 
 //  Mongo Connect String
 let databaseUrl: string;
-switch (process.env.NODE_ENV) {
-  case 'test':
-    databaseUrl = 'mongodb://localhost/test';
-    break;
-  default:
-    databaseUrl = process.env.MONGO_URL || 'mongodb://localhost/development';
-    break;
-}
+
+databaseUrl = process.env.MONGO_URL || 'mongodb://localhost/development';
 
 // Connect To your Database
 mongoose
