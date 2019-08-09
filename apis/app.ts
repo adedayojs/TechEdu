@@ -11,16 +11,23 @@ import indexRouter from './routes/index';
 import usersRouter from './routes/users';
 import apiRouter from './routes/apis';
 var app = express();
-const databaseUrl: string =
-  process.env.MONGO_URL || 'mongodb://localhost/development';
-console.log(process.env.NODE_ENV);
+
+//  Mongo Connect String
+let databaseUrl: string;
+
+databaseUrl = process.env.MONGO_URL || 'mongodb://localhost/development';
+
+// Connect To your Database
 mongoose
   .connect(databaseUrl, { useNewUrlParser: true, useCreateIndex: true })
   .catch(err => err);
 const db = mongoose.connection;
+
+//  Handle Database Connection Error To Retry Connecting
 db.on('error', () => {
   console.log('Connection Failed');
   let sec: number = 3;
+  //  Set Interval to connect after 3 seconds
   let retry = setInterval(() => {
     if (sec > 0) {
       console.log(`Retrying In ${sec} Second(s)`);
@@ -51,8 +58,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/users', usersRouter);
 app.use('/apis', apiRouter);
 
-const clientDirectory = path.join(__dirname, '../', '/build');
+const clientDirectory = path.join(__dirname, '../../', '/build');
 
+//  Forward All Routes By Default to React Build if In Production Mode
 if (fs.existsSync(clientDirectory) && process.env.NODE_ENV === 'production') {
   console.log('Production Environment');
   app.use(express.static(clientDirectory));

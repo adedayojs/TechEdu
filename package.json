@@ -15,6 +15,7 @@
     "react-scripts": "3.0.1"
   },
   "scripts": {
+    "preinstall": "cd apis; yarn install",
     "start": "cd apis; yarn start",
     "dev": "cd apis; yarn dev",
     "test": "cd apis; yarn test",

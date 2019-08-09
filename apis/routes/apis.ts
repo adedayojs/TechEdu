@@ -1,5 +1,7 @@
 import express from 'express';
+import schools from './schools';
 const router = express.Router();
+
 const about = [
   {
     id: 'story',
@@ -23,7 +25,7 @@ const about = [
     icon: './assets/img/mission.webp'
   }
 ];
-const schools = [
+const school = [
   {
     id: 1,
     name: 'Unilag',
@@ -64,14 +66,15 @@ const schools = [
     id: 7
   }
 ];
-/* GET users listing. */
+
 router.get('/about', function(req, res, next) {
   res.json(about);
 });
 
-  
-router.get('/schools', function(req, res, next) {
-  res.json(schools);
-});
+// Handles All Request to /schools route
+router.use('/schools',schools);
+
+
+
 
 export default router;

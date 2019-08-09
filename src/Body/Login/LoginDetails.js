@@ -110,7 +110,7 @@ function LoginDetails() {
           Create your account <FaLongArrowAltRight />
         </p>
       </Link>
-      {redirect === true ? <Redirect to="home" /> : null}
+      {redirect === true ? <Redirect to="school" /> : null}
     </div>
   );
 }
