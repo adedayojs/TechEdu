@@ -26,6 +26,6 @@ yarn-error.log*
 README copy.md
 /.vscode
 
-
+compile/
 server.js
 .env
