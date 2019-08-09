@@ -3,10 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "preinstall": "yarn tsc",
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www",
-    "test": "jest"
+    "test": "jest",
+    "postinstall": "tsc"
   },
   "dependencies": {
     "@types/cookie-parser": "^1.4.1",
