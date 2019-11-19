@@ -1,7 +1,7 @@
 import express from 'express';
 import { MongooseDocument } from 'mongoose';
 var router = express.Router();
-import User from '../model/mongoose/user';
+import User from '../model/user';
 
 /* GET users listing. */
 router.get('/', (req, res) => {

@@ -1,30 +1,7 @@
 import express from 'express';
-import schools from './schools';
+
 const router = express.Router();
 
-const about = [
-  {
-    id: 'story',
-    name: 'Our Story',
-    description:
-      "This idea started as an initiative geared towards another sector however since a nation's power lies in it educational system, we tought best to channel the passion into the same sector and here we are today! and of course all Thanks to you!",
-    icon: './assets/img/story-e.webp'
-  },
-  {
-    id: 'vision',
-    name: 'Our Vision',
-    description:
-      'To ensure that problems facing education institution and prospective students majorly development and decision making respectively is solved and as such education is evenly distributed accross all sphere of people everywhere accross the nation',
-    icon: './assets/img/vision.webp'
-  },
-  {
-    id: 'mission',
-    name: 'Our Mission',
-    description:
-      'We organize seminars, platforms such but not limitetd to this website, to create education awareness among the general mass.  We review the outcome of the programs and platforms and improve such statistics foster improvement ',
-    icon: './assets/img/mission.webp'
-  }
-];
 const school = [
   {
     id: 1,
@@ -67,15 +44,8 @@ const school = [
   }
 ];
 
-
-router.get('/about', function(req, res, next) {
-  res.json(about);
+router.get('/', function(req: express.Request, res: express.Response) {
+  res.json(school);
 });
-
-// Handles All Request to /schools route
-router.use('/schools',schools);
-
-
-
 
 export default router;

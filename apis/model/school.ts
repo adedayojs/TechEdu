@@ -1,5 +1,5 @@
 import mongoose, { model, Model, Document } from 'mongoose';
-import schoolSchema from '../../schema/mongoose/school';
+import schoolSchema from '../schema/school';
 import {IFaculty} from './faculty'
 
 

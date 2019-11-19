@@ -1,5 +1,5 @@
 import { Schema } from 'mongoose';
-import facultySchema from '../../schema/mongoose/faculty';
+import facultySchema from './faculty';
 
 const schoolSchema = new Schema({
   name: {

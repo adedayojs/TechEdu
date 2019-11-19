@@ -1,7 +1,7 @@
 import express from 'express';
-import School from '../../model/mongoose/school';
-import Faculty from '../../model/mongoose/faculty';
-import { IFaculty } from '../../model/mongoose/faculty';
+import School from '../../model/school';
+import Faculty from '../../model/faculty';
+import { IFaculty } from '../../model/faculty';
 
 const router = express.Router();
 

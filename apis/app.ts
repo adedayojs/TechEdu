@@ -7,7 +7,6 @@ import logger from 'morgan';
 import mongoose from 'mongoose';
 require('dotenv').config();
 
-import indexRouter from './routes/index';
 import usersRouter from './routes/users';
 import apiRouter from './routes/apis';
 var app = express();
@@ -87,7 +86,7 @@ app.use(function(
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.json({ error: err.status });
 });
 
 module.exports = app;
