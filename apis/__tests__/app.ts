@@ -15,9 +15,9 @@ describe('apis/school', () => {
       console.log(res.body);
       expect(res.status).toBe(200);
     });
-    test('it should be empty by default', async () => {
+    test('it should not be empty by default', async () => {
       const res = await request(app).get('/apis/schools');
-      expect(res.body).toEqual({});
+      expect(res.body).not.toEqual({});
     });
   });
 
