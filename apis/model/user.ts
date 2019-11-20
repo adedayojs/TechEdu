@@ -1,4 +1,5 @@
 import { model, Schema, Document } from 'mongoose';
+import { IInstitution } from './institution';
 
 interface IUser extends Document {
   username: string;
@@ -11,7 +12,7 @@ interface IUser extends Document {
   isAdmin: boolean;
   isLecturer: boolean;
   isStudent: boolean;
-  institutions: IInstitution[]
+  institutions: IInstitution[];
 }
 const userSchema = new Schema({
   username: { type: String, required: true },
@@ -24,10 +25,12 @@ const userSchema = new Schema({
   isAdmin: { required: true, default: false, type: Boolean },
   isLecturer: { required: true, default: false, type: Boolean },
   isStudent: { required: true, default: false, type: Boolean },
-  institutions:[{
-      type:Schema.Types.ObjectId,
-      ref:'Institution'
-  }]
+  institutions: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Institution'
+    }
+  ]
 });
 
 export default model<IUser>('User', userSchema);
