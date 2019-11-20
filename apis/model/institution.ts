@@ -9,6 +9,7 @@ export interface IInstitution extends Document {
   state: string;
   type: string[];
   founded: Date;
+  website:string,
   principal: string;
   description: string;
   faculties: IFaculty[];
