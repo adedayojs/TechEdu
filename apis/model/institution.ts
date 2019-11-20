@@ -1,5 +1,4 @@
-import mongoose, { model, Model, Document, Schema } from 'mongoose';
-import schoolSchema from '../schema/school';
+import { model, Document, Schema } from 'mongoose';
 import { IFaculty } from './faculty';
 
 export interface IInstitution extends Document {
@@ -16,10 +15,21 @@ export interface IInstitution extends Document {
 }
 
 const institutionSchema = new Schema({
-  name: { type: String, required: true, minlength: 10, unique: true },
+  name: {
+    type: String,
+    required: true,
+    minlength: 10,
+    unique: true,
+    trim: true
+  },
+  email: {
+    type: String,
+    unique: true,
+    minlength: 5,
+    validate: /([a-z]|\d){3,}@(?=.[a-z0-9]).{3,}\.[a-z]{2,}/i
+  },
+  address: { type: String, required: true, minlength: 10 },
   website: { type: String, unique: true },
-  email: { type: String, unique: true },
-  address: { type: String, required: true },
   lga: { type: String },
   state: { type: String, required: true },
   description: String,

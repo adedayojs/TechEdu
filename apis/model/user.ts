@@ -19,7 +19,12 @@ const userSchema = new Schema({
   firstname: { type: String, required: true },
   lastname: { type: String, required: true },
   phone: { type: String, required: false },
-  email: { type: String, required: true },
+  email: {
+    type: String,
+    required: true,
+    minlength: 5,
+    validate: /([a-z]|\d){3,}@(?=.[a-z0-9]).{3,}\.[a-z]{2,}/i
+  },
   password: { type: String, required: true },
   gender: String,
   isAdmin: { required: true, default: false, type: Boolean },
