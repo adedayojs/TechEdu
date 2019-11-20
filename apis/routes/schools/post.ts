@@ -1,5 +1,5 @@
 import express from 'express';
-import School from '../../model/school';
+import School from '../../model/institution';
 import Faculty from '../../model/faculty';
 import { IFaculty } from '../../model/faculty';
 

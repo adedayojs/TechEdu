@@ -1,8 +1,8 @@
 import express from 'express';
-import getSchool from './schools/getSchools';
-import postSchool from './schools/postSchool';
-import putSchool from './schools/putSchool';
-import deleteSchool from './schools/deleteSchool';
+import getSchool from './schools/get';
+import postSchool from './schools/post';
+import putSchool from './schools/update';
+import deleteSchool from './schools/delete';
 
 const router = express.Router();
 
