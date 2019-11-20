@@ -8,7 +8,7 @@ import mongoose from 'mongoose';
 require('dotenv').config();
 
 import usersRouter from './routes/users';
-import apiRouter from './routes/apis';
+import apiRouter from './routes';
 var app = express();
 
 //  Mongo Connect String
